@@ -20,6 +20,7 @@ module Sift
 
     # rubocop:disable Lint/UnusedMethodArgument
     def apply!(collection, value:, active_sorts_hash:, params: {})
+      binding.pry
       parameterized_values = parameterize(value)
       processed_values = @tap.present? ? @tap.call(parameterized_values, params) : parameterized_values
       handler.call(collection, processed_values, params, scope_params)
