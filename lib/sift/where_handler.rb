@@ -5,7 +5,6 @@ module Sift
     end
 
     def call(collection, value, _params, _scope_params)
-      value = value == 'null' ? nil : value
       if @param.type == :jsonb
         apply_jsonb_conditions(collection, value)
       else
