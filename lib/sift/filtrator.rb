@@ -18,6 +18,7 @@ module Sift
     end
 
     def filter
+      binding.pry
 ;      active_filters.reduce(collection) do |col, filter|
         binding.pry
         apply(col, filter)
