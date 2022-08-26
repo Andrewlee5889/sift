@@ -17,7 +17,6 @@ module Sift
 
   def filtrate(collection)
     Filtrator.filter(collection, params, filters)
-    binding.pry
   end
 
   def filter_params
