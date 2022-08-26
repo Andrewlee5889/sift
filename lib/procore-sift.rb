@@ -16,6 +16,7 @@ module Sift
   extend ActiveSupport::Concern
 
   def filtrate(collection)
+    binding.pry
     Filtrator.filter(collection, params, filters)
   end
 
