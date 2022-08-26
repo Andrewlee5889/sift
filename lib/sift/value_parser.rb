@@ -85,6 +85,7 @@ module Sift
     end
 
     def normalized_date_range(raw_value)
+      return raw_value if raw_value == 'null'
       from_date_string, end_date_string = raw_value.split("...")
       return unless end_date_string
 

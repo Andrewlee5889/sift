@@ -6,6 +6,7 @@ class ValidDateRangeValidator < ActiveModel::EachValidator
   private
 
   def valid_date_range?(date_range)
+    return true if date_range == 'null'
     from_date_string, end_date_string = date_range.to_s.split("...")
     return true unless end_date_string # validated by other validator
 

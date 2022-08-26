@@ -7,6 +7,7 @@ class ValidIntValidator < ActiveModel::EachValidator
   private
 
   def valid_int?(value)
+    return true if date_range == 'null'
     integer_array?(value) || integer_or_range?(value)
   end
 
