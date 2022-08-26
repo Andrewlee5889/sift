@@ -17,7 +17,7 @@ module Sift
     end
 
     def filter
-      aosdifjaosdijf
+      binding.pry
       active_filters.reduce(collection) do |col, filter|
         apply(col, filter)
       end
