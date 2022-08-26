@@ -6,6 +6,7 @@ module Sift
     attr_reader :collection, :params, :filters, :sort
 
     def self.filter(collection, params, filters, sort = [])
+      binding.pry
       new(collection, params, sort, filters).filter
     end
 
