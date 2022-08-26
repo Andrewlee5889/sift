@@ -17,7 +17,7 @@ module Sift
     end
 
     def filter
-      active_filters.reduce(collection) do |col, filter|
+;      active_filters.reduce(collection) do |col, filter|
         apply(col, filter)
       end
     end
@@ -25,6 +25,7 @@ module Sift
     private
 
     def apply(collection, filter)
+      binding.pry
       filter.apply!(collection, value: filter_params[filter.param], active_sorts_hash: active_sorts_hash, params: params)
     end
 
