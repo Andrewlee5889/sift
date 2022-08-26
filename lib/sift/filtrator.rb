@@ -6,7 +6,6 @@ module Sift
     attr_reader :collection, :params, :filters, :sort
 
     def self.filter(collection, params, filters, sort = [])
-      binding.pry
       new(collection, params, sort, filters).filter
     end
 
@@ -18,9 +17,7 @@ module Sift
     end
 
     def filter
-      binding.pry
 ;      active_filters.reduce(collection) do |col, filter|
-        binding.pry
         apply(col, filter)
       end
     end
@@ -28,7 +25,6 @@ module Sift
     private
 
     def apply(collection, filter)
-      binding.pry
       filter.apply!(collection, value: filter_params[filter.param], active_sorts_hash: active_sorts_hash, params: params)
     end
 
