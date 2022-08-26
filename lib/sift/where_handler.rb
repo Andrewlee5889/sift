@@ -8,6 +8,7 @@ module Sift
       if @param.type == :jsonb
         apply_jsonb_conditions(collection, value)
       else
+        value = nil if value == 'null'
         collection.where(@param.internal_name => value)
       end
     end
