@@ -5,11 +5,16 @@ module Sift
     end
 
     def call(collection, value, _params, _scope_params)
-      binding.pry
       if @param.type == :jsonb
         apply_jsonb_conditions(collection, value)
       else
         value = nil if value == 'null'
+        if value.is_a?(Array)
+          value = value.map do |v|
+            v == 'null' ? nil : v
+          end
+        end
+        
         collection.where(@param.internal_name => value)
       end
     end
@@ -17,7 +22,6 @@ module Sift
     private
 
     def apply_jsonb_conditions(collection, value)
-      binding.pry
       return collection.where("#{@param.internal_name} @> ?", val.to_s) if value.is_a?(Array)
 
       value.each do |key, val|
