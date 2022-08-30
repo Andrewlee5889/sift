@@ -16,6 +16,7 @@ module Sift
     private
 
     def apply_jsonb_conditions(collection, value)
+      binding.pry
       return collection.where("#{@param.internal_name} @> ?", val.to_s) if value.is_a?(Array)
 
       value.each do |key, val|
