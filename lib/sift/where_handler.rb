@@ -5,6 +5,7 @@ module Sift
     end
 
     def call(collection, value, _params, _scope_params)
+      binding.pry
       if @param.type == :jsonb
         apply_jsonb_conditions(collection, value)
       else
